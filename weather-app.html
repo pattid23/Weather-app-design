@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <div class="containter-fluid">
+      <div class="card" style="width: 50rem">
+        <div class="card-body">
+          <h1 id="display-input">Washington, D.C.</h1>
+
+          <form class="city" id="search-form">
+            <label for="text">Enter City</label>
+            <input type="search" id="search-input" />
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+          <div class="current-details">
+            <span class="emoji">🌧️</span>
+            <span class="current-degree" id="current-temp">°F</span>
+            <span class="day-temp">50°/42°</span>
+          </div>
+
+          <ul class="current-specs">
+            <li id="precipitaction">Precipitation: 100%</li>
+            <li id="Humidity">Humidity: 90%</li>
+            <li id="Windy">Wind: 4 mph</li>
+          </ul>
+
+          <ul class="today-specs">
+            <li>Weather</li>
+            <li class="time" id="date">Friday 10:40pm</li>
+            <li>Rain</li>
+          </ul>
+
+          <div class="container_1">
+            <div class="row">
+              <div class="col">Saturday</div>
+              <div class="col">Sunday</div>
+              <div class="col">Monday</div>
+              <div class="col">Tuesday</div>
+              <div class="col">Wednesday</div>
+              <div class="col">Thursday</div>
+            </div>
+          </div>
+
+          <div class="weekdays">
+            <div class="row">
+              <span class="col">🌧️</span>
+              <span class="col">☀️</span>
+              <span class="col">⛅️</span>
+              <span class="col">🌦️</span>
+              <span class="col">☀️</span>
+              <span class="col">⛅️</span>
+            </div>
+          </div>
+
+          <div class="temperatures">
+            <div class="row">
+              <span class="col">66°/47°</span>
+              <span class="col">68°/44°</span>
+              <span class="col">59°/44°</span>
+              <span class="col">59°/38°</span>
+              <span class="col">57°/40°</span>
+              <span class="col">60°/45°</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
