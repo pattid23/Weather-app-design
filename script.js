@@ -1,4 +1,3 @@
-//challenge 1 - add current date and time
 function formatDate(date) {
   let now = new Date();
 
