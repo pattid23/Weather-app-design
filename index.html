@@ -16,71 +16,75 @@
   </head>
 
   <body>
-    <div id="app"></div>
-    <div class="containter-fluid">
-      <div class="card" style="width: 50rem">
-        <div class="card-body">
-          <h1 id="display-input">Washington, D.C.</h1>
+    <div class="containter">
+      <div
+        class="shadow p-3 mb-5 mt-5 bg-body-tertiary rounded weather-container"
+      >
+        <h1 id="display-input">Washington, D.C.</h1>
 
-          <form class="city" id="search-form">
-            <label for="text">Enter City</label>
-            <input type="search" id="search-input" />
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+        <form class="city" id="search-form">
+          <label for="text">Enter City</label>
+          <input type="search" id="search-input" />
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
 
-          <div class="current-details">
-            <span class="emoji">🌧️</span>
-            <span class="current-degree" id="current-temp">°F</span>
-            <span class="day-temp">50°/42°</span>
+        <div class="current-details">
+          <span class="emoji">🌧️</span>
+          <span class="current-degree" id="current-temp"> °F</span>
+          <span class="day-temp">50°/42°</span>
+        </div>
+
+        <div class="current-specs">
+          <div id="precipitaction">Precipitation: 100%</div>
+          <div id="Humidity">Humidity: 90%</div>
+          <div id="Windy">Wind: 4 mph</div>
+        </div>
+
+        <div class="today-specs">
+          <div>Weather</div>
+          <div class="time" id="date">Friday 10:40pm</div>
+          <div>Rain</div>
+        </div>
+
+        <div class="weekdays">
+          <div class="row">
+            <div class="col">Saturday</div>
+            <div class="col">Sunday</div>
+            <div class="col">Monday</div>
+            <div class="col">Tuesday</div>
+            <div class="col">Wednesday</div>
+            <div class="col">Thursday</div>
           </div>
+        </div>
 
-          <ul class="current-specs">
-            <li id="precipitaction">Precipitation: 100%</li>
-            <li id="Humidity">Humidity: 90%</li>
-            <li id="Windy">Wind: 4 mph</li>
-          </ul>
-
-          <ul class="today-specs">
-            <li>Weather</li>
-            <li class="time" id="date">Friday 10:40pm</li>
-            <li>Rain</li>
-          </ul>
-
-          <div class="container_1">
-            <div class="row">
-              <div class="col">Saturday</div>
-              <div class="col">Sunday</div>
-              <div class="col">Monday</div>
-              <div class="col">Tuesday</div>
-              <div class="col">Wednesday</div>
-              <div class="col">Thursday</div>
-            </div>
+        <div class="weather-emoji">
+          <div class="row">
+            <span class="col">🌧️</span>
+            <span class="col">☀️</span>
+            <span class="col">⛅️</span>
+            <span class="col">🌦️</span>
+            <span class="col">☀️</span>
+            <span class="col">⛅️</span>
           </div>
+        </div>
 
-          <div class="weekdays">
-            <div class="row">
-              <span class="col">🌧️</span>
-              <span class="col">☀️</span>
-              <span class="col">⛅️</span>
-              <span class="col">🌦️</span>
-              <span class="col">☀️</span>
-              <span class="col">⛅️</span>
-            </div>
-          </div>
-
-          <div class="temperatures">
-            <div class="row">
-              <span class="col">66°/47°</span>
-              <span class="col">68°/44°</span>
-              <span class="col">59°/44°</span>
-              <span class="col">59°/38°</span>
-              <span class="col">57°/40°</span>
-              <span class="col">60°/45°</span>
-            </div>
+        <div class="temperatures">
+          <div class="row">
+            <span class="col">66°/47°</span>
+            <span class="col">68°/44°</span>
+            <span class="col">59°/44°</span>
+            <span class="col">59°/38°</span>
+            <span class="col">57°/40°</span>
+            <span class="col">60°/45°</span>
           </div>
         </div>
       </div>
     </div>
+    <footer>
+      <a target="_blank" href="https://github.com/pattid23/Weather-app-design">
+        Open Source Code </a
+      >Built by <span class="span-footer-name">Patricia Delgado</span>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
