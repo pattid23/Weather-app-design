@@ -24,36 +24,41 @@
 
         <form class="city" id="search-form">
           <label for="text">Enter City</label>
-          <input type="search" id="search-input" />
+          <input type="search" id="search-input" autocomplete="off" />
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
-        <div class="current-details">
-          <span class="emoji">🌧️</span>
-          <span class="current-degree" id="current-temp"> °F</span>
+        <div class="d-flex weather-temperature">
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+            alt="clear-sky"
+            id="icon"
+          />
+          <strong id="current-temp"> 35 </strong>
+          <span class="units"> °F</span>
           <span class="day-temp">50°/42°</span>
         </div>
 
-        <div class="current-specs">
-          <div id="precipitaction">Precipitation: 100%</div>
-          <div id="Humidity">Humidity: 90%</div>
-          <div id="Windy">Wind: 4 mph</div>
-        </div>
+        <ul class="current-specs">
+          <li id="precipitaction">Precipitation: 100%</li>
+          <li id="Humidity">Humidity: 90%</li>
+          <li id="Windy">Wind: 4 mph</li>
+        </ul>
 
-        <div class="today-specs">
-          <div>Weather</div>
-          <div class="time" id="date">Friday 10:40pm</div>
-          <div>Rain</div>
-        </div>
+        <ul class="today-specs">
+          <li>Weather</li>
+          <li id="date">Friday 10:40pm</li>
+          <li>Rain</li>
+        </ul>
 
         <div class="weekdays">
           <div class="row">
-            <div class="col">Saturday</div>
             <div class="col">Sunday</div>
             <div class="col">Monday</div>
             <div class="col">Tuesday</div>
             <div class="col">Wednesday</div>
             <div class="col">Thursday</div>
+            <div class="col">Friday</div>
           </div>
         </div>
 
@@ -85,6 +90,6 @@
         Open Source Code </a
       >Built by <span class="span-footer-name">Patricia Delgado</span>
     </footer>
-    <script src="script.js"></script>
+    <script src="possiblescript.js"></script>
   </body>
 </html>
