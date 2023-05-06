@@ -1,15 +1,13 @@
-function formatDate(date) {
-  let now = new Date();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
 
-  let hours = now.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
+  let hours = date.getHours();
 
-  let minutes = now.getMinutes();
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+
   let days = [
     "Sunday",
     "Monday",
@@ -19,24 +17,36 @@ function formatDate(date) {
     "Friday",
     "Saturday",
   ];
-  let day = days[now.getDay()];
-
-  let currentDate = `${day}, ${hours}: ${minutes}`;
-
-  return currentDate;
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
-document.getElementById("date").innerHTML = formatDate();
 
 function weatherNow(response) {
-  let h1 = document.querySelector("#display-input");
-  h1.innerHTML = response.data.name;
-  let temparature = document.querySelector("#current-temp");
-  temparature.innerHTML = Math.round(response.data.main.temp);
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#windy").innerHTML = Math.round(
-    response.data.wind.speed
+  let currentTemperatureElement = document.querySelector("#current-temp");
+  let cityElement = document.querySelector("#display-input");
+  let conditionsElement = document.querySelector("#conditions");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#windy");
+  let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
+
+  fahrenheitTemp = response.data.main.temp;
+
+  currentTemperatureElement.innerHTML = Math.round(fahrenheitTemp);
+  cityElement.innerHTML = response.data.name;
+  conditionsElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
+
+let apiKey = "e75d849f74609cf49f1546fd56024af1";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Washington D.C.&appid=${apiKey}&units=imperial`;
+axios.get(apiUrl).then(weatherNow);
 
 function searchCity(city) {
   let apiKey = "e75d849f74609cf49f1546fd56024af1";
@@ -49,12 +59,31 @@ function search(event) {
   let city = document.querySelector("#search-input");
   searchCity(city.value);
 }
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+}
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let fahrenheitTemp = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", search);
 
-function showPosition(position) {
-  let apiKey = "e75d849f74609cf49f1546fd56024af1";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
 
-  axios.get(apiUrl).then(weatherNow);
-}
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
