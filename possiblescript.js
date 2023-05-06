@@ -18,7 +18,6 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-
   return `${day} ${hours}:${minutes}`;
 }
 
@@ -29,12 +28,17 @@ function weatherNow(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#windy");
   let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
   currentTemperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   conditionsElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 let apiKey = "e75d849f74609cf49f1546fd56024af1";
