@@ -44,3 +44,24 @@ function weatherNow(response) {
 let apiKey = "e75d849f74609cf49f1546fd56024af1";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Washington D.C.&appid=${apiKey}&units=imperial`;
 axios.get(apiUrl).then(weatherNow);
+
+function searchCity(city) {
+  let apiKey = "e75d849f74609cf49f1546fd56024af1";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(weatherNow);
+}
+
+function search(event) {
+  event.preventDefault();
+  let city = document.querySelector("#search-input");
+  searchCity(city.value);
+}
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);
+
+function showPosition(position) {
+  let apiKey = "e75d849f74609cf49f1546fd56024af1";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
+
+  axios.get(apiUrl).then(weatherNow);
+}
