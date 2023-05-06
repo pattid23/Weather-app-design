@@ -65,6 +65,16 @@ li {
   position: relative;
   top: 17px;
 }
+
+.weather-temperature .active {
+  cursor: default;
+  color: rgb(35, 35, 35);
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
+
 .current-specs {
   background: transparent;
   padding: 20px;
