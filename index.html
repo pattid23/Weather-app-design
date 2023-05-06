@@ -20,7 +20,7 @@
       <div
         class="shadow p-3 mb-5 mt-5 bg-body-tertiary rounded weather-container"
       >
-        <h1 id="display-input">Washington, D.C.</h1>
+        <h1 id="display-input"></h1>
 
         <form class="city" id="search-form">
           <label for="text">Enter City</label>
@@ -32,23 +32,25 @@
           <img
             src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
             alt="clear-sky"
+            class="temp-emoji"
             id="icon"
           />
-          <strong id="current-temp"> 35 </strong>
-          <span class="units"> °F</span>
-          <span class="day-temp">50°/42°</span>
+          <div class="float-left">
+            <strong id="current-temp"></strong>
+            <span class="units"><a href="#">°F</a> | <a href="#">°C</a></span>
+          </div>
         </div>
 
         <ul class="current-specs">
-          <li id="precipitaction">Precipitation: 100%</li>
-          <li id="Humidity">Humidity: 90%</li>
-          <li id="Windy">Wind: 4 mph</li>
+          <li>Humidity: <span id="humidity"></span>%</li>
+          <li>Wind: <span id="windy"></span> mph</li>
+          <li>Feels Like: <span id="feels-like"></span>°</li>
         </ul>
 
         <ul class="today-specs">
           <li>Weather</li>
           <li id="date">Friday 10:40pm</li>
-          <li>Rain</li>
+          <li><span class="conditions"></span></li>
         </ul>
 
         <div class="weekdays">
