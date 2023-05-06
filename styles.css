@@ -35,23 +35,6 @@ li {
   font-weight: 100;
   line-height: 20px;
 }
-/* .current-details .emoji {
-  position: relative;
-  top: -10px;
-  font-size: 50px;
-}
-
-.current-details .current-degree {
-  position: relative;
-  top: -25px;
-  left: 20px;
-  font-size: 40px;
-}
-
-.current-details .day-temp {
-  position: relative;
-  left: -20px;
-} */
 
 .weather-temperature {
   height: 100px;

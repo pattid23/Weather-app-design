@@ -63,12 +63,16 @@ function search(event) {
 function displayCelsiusTemp(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-temp");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
   temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
 
 function displayFahrenheitTemp(event) {
   event.preventDefault();
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
   let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
