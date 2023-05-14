@@ -2,6 +2,21 @@ function formatDate(timestamp) {
   let date = new Date(timestamp);
 
   let hours = date.getHours();
+  let timing;
+
+  if (hours < 12) {
+    timing = "AM";
+  } else {
+    timing = "PM";
+  }
+
+  if (hours > 12) {
+    hours -= 12;
+  }
+
+  if (hours === 0) {
+    hours = 12;
+  }
 
   let minutes = date.getMinutes();
   if (minutes < 10) {
@@ -18,7 +33,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes} ${timing}`;
 }
 
 function formatDay(timestamp) {
@@ -36,7 +51,7 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 7) {
       forecastHTML =
         forecastHTML +
         `
@@ -79,6 +94,7 @@ function weatherNow(response) {
   let windElement = document.querySelector("#windy");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+  let feelsLikeElement = document.querySelector("#feels-like");
 
   fahrenheitTemp = response.data.main.temp;
 
@@ -92,6 +108,7 @@ function weatherNow(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
 
   getForecast(response.data.coord);
 }
