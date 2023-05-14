@@ -82,10 +82,15 @@ a {
 .weather-forecast {
   margin-top: -180px;
   text-align: center;
+  color: #000;
 }
 
 .weather-forecast-date {
   font-size: 18px;
+}
+
+.temp-min {
+  opacity: 0.4;
 }
 
 .weather-forecast-temp {
