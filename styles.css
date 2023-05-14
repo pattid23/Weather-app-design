@@ -7,10 +7,14 @@ h1 {
   font-size: 30px;
 }
 
+body {
+  background-color: rgb(245, 244, 245);
+}
+
 .weather-container {
   display: block;
   margin: 0 auto;
-  background-color: #edf7fa;
+  background-color: #cdcdcd;
   max-width: 800px;
   max-height: 450px;
 }
