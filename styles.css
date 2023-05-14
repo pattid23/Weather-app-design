@@ -83,6 +83,7 @@ a {
   margin-top: -180px;
   text-align: center;
   color: #000;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .weather-forecast-date {
@@ -100,7 +101,6 @@ a {
 footer {
   font-family: sans-serif;
   text-align: center;
-  margin-bottom: 10px;
   margin: 0 auto;
   display: block;
 }
