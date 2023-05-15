@@ -95,6 +95,9 @@ function weatherNow(response) {
   let iconElement = document.querySelector("#icon");
   let feelsLikeElement = document.querySelector("#feels-like");
 
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+
   fahrenheitTemp = response.data.main.temp;
 
   currentTemperatureElement.innerHTML = Math.round(fahrenheitTemp);
