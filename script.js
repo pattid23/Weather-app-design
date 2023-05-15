@@ -131,8 +131,8 @@ function search(event) {
 function displayCelsiusTemp(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-temp");
-  fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let celsiusTemp = ((fahrenheitTemp - 32) * 5) / 9;
   temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
